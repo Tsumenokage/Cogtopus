@@ -54,33 +54,28 @@
 					<div class="row" >
 						<div class="col-lg-1 col-md-1 box" id="infos_offi">Informations officielles</div>
 						<div class="col-lg-1 col-md-2 box" id="description_evenement">Description de l'évènement</div>
-						
-					</div>		
-					
-					<div class="row" >			
 						<div class="col-lg-1 col-md-3 box" id="timeline_accueil">Timeline : les dernières informations</div>
-						<div class="col-lg-1 col-md-4 box" id="maps">MAPS
-							<div class="col-lg-1 col-md-5 aside" id="tweets">Les plus retweetés</div>				
+						<div class="col-lg-1 col-md-4 box" id="maps">MAPS 
+							<div id="googleMap"></div>
+							<div id="zoneIcones">
+								<img src="Ressources/icon_attentat.png" onclick="selectionIcone('icon_attentat');" style="width: 60px; height:94px;">
+								<img src="Ressources/icon_epidemie.png" onclick="selectionIcone('icon_epidemie');" style="width: 60px; height:94px;">
+								<img src="Ressources/icon_guerre.png" onclick="selectionIcone('icon_guerre');" style="width: 60px; height:94px;">
+								<img src="Ressources/icon_incendie.png" onclick="selectionIcone('icon_incendie');" style="width: 60px; height:94px;">
+								<img src="Ressources/icon_innondation.png" onclick="selectionIcone('icon_innondation');" style="width: 60px; height:94px;">
+								<img src="Ressources/icon_seisme.png" onclick="selectionIcone('icon_seisme');" style="width: 60px; height:94px;">
+							</div>
+							
 						</div>
-					</div>
-					
-					<div class="row" >
 						<div class="col-lg-1 col-md-5 box" id="protocoles">Protocoles à suivre en cas d'urgence</div>
-					</div>
-					
+						<div class="col-lg-2 col-md-2 aside" id="tweets">Les plus retweetés</div>
+						
+					</div>	
 				</div>	
 				
 			</div>
 			
-			<div id="googleMap" style="width:45%;height:500px;"></div>
-			<div id="zoneIcones">
-				<img src="Ressources/icon_attentat.png" onclick="selectionIcone('icon_attentat');" style="width: 60px; height:94px;">
-				<img src="Ressources/icon_epidemie.png" onclick="selectionIcone('icon_epidemie');" style="width: 60px; height:94px;">
-				<img src="Ressources/icon_guerre.png" onclick="selectionIcone('icon_guerre');" style="width: 60px; height:94px;">
-				<img src="Ressources/icon_incendie.png" onclick="selectionIcone('icon_incendie');" style="width: 60px; height:94px;">
-				<img src="Ressources/icon_innondation.png" onclick="selectionIcone('icon_innondation');" style="width: 60px; height:94px;">
-				<img src="Ressources/icon_seisme.png" onclick="selectionIcone('icon_seisme');" style="width: 60px; height:94px;">
-			</div>
+			
 			
 			
 			
