@@ -17,82 +17,32 @@
 		
 	</head>
 	<body>
-		
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display FIXE-->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">LOGO</a>
-					<h1 class="navbar-text">Alerte évènement à LIEU. Veuillez rester chez vous.</h1>
-				</div>
-				
-				
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li></li>
-					</ul>
-					
-					<ul class="nav navbar-nav navbar-left">
-						<li><a href="#">Protocoles à suivre</a></li>
-						<li><a href="#">Toutes les informations</a></li>
-						<li><a href="#">Les secours les plus proches</a></li>     
-					</ul>
-					
-				</div><!-- /.navbar-collapse -->	
-			</div><!-- /.container-fluid -->
-		</nav>
-		<div id="wrapper">
-			<div id="grosseBoite"> 
-				
-				<div class="container-fluid">
-					<div class="row" >
-						<div class="col-lg-1 col-md-1 box" id="infos_offi">Informations officielles</div>
-						<div class="col-lg-1 col-md-2 box" id="description_evenement">Description de l'évènement</div>
-						
-					</div>		
-					
-					<div class="row" >			
-						<div class="col-lg-1 col-md-3 box" id="timeline_accueil">Timeline : les dernières informations</div>
-						<div class="col-lg-1 col-md-4 box" id="maps">MAPS
-							<div class="col-lg-1 col-md-5 aside" id="tweets">Les plus retweetés</div>				
-						</div>
-					</div>
-					
-					<div class="row" >
-						<div class="col-lg-1 col-md-5 box" id="protocoles">Protocoles à suivre en cas d'urgence</div>
-					</div>
-					
-				</div>	
-				
+		<div id="header">
+			<label id="texteHeader">Alerte évènement à LIEU. Veuillez rester chez vous</label>
+			<div id="menu">
+				<a href="">Accueil</a>
+				<a href="protocoles.html">Protocoles à suivre</a>
+				<a>Toutes les informations</a>
 			</div>
-			
-			<div id="googleMap" style="width:45%;height:500px;"></div>
-			<div id="zoneIcones">
-				<img src="Ressources/icon_attentat.png" onclick="selectionIcone('icon_attentat');" style="width: 60px; height:94px;">
-				<img src="Ressources/icon_epidemie.png" onclick="selectionIcone('icon_epidemie');" style="width: 60px; height:94px;">
-				<img src="Ressources/icon_guerre.png" onclick="selectionIcone('icon_guerre');" style="width: 60px; height:94px;">
-				<img src="Ressources/icon_incendie.png" onclick="selectionIcone('icon_incendie');" style="width: 60px; height:94px;">
-				<img src="Ressources/icon_innondation.png" onclick="selectionIcone('icon_innondation');" style="width: 60px; height:94px;">
-				<img src="Ressources/icon_seisme.png" onclick="selectionIcone('icon_seisme');" style="width: 60px; height:94px;">
-			</div>
-			
-			
-			
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
+		<div id="wrapper">
+			<div class="boite">
+				<div class="zoneFct"><label>Informations officielles</label></div>
+				<div class="zoneFct"><label>Description de l'évènement</label></div>
+				<div class="zoneFct"><label>Timeline : les dernières informations</label></div>
+				<div id="googleMap" id="map"></div>
+				<div id="zoneIcones">
+					<img src="Ressources/icon_attentat.png" class="cursorChange" data-toggle="tooltip" title="Signaler un attentat" onclick="selectionIcone('icon_attentat');" style="width: 60px; height:94px;">
+					<img src="Ressources/icon_epidemie.png" class="cursorChange" data-toggle="tooltip" title="Signaler une épidémie" onclick="selectionIcone('icon_epidemie');" style="width: 60px; height:94px;">
+					<img src="Ressources/icon_guerre.png" class="cursorChange" data-toggle="tooltip" title="Signaler une guerre" onclick="selectionIcone('icon_guerre');" style="width: 60px; height:94px;">
+					<img src="Ressources/icon_incendie.png" class="cursorChange" data-toggle="tooltip" title="Signaler un incendie" onclick="selectionIcone('icon_incendie');" style="width: 60px; height:94px;">
+					<img src="Ressources/icon_innondation.png" class="cursorChange" odata-toggle="tooltip" title="Signaler une innondation" nclick="selectionIcone('icon_innondation');" style="width: 60px; height:94px;">
+					<img src="Ressources/icon_seisme.png" class="cursorChange" data-toggle="tooltip" title="Signaler un séisme" onclick="selectionIcone('icon_seisme');" style="width: 60px; height:94px;">
+				</div>	
+				<div class="zoneFct"><label>Les plus retweetés</label></div>
+				<div class="zoneFct"><label>Protocoles à suivre en cas d'urgence</label></div>
+			</div>	
+		</div>	
 	</body>
 </html>		
 
@@ -212,5 +162,9 @@
 			"class": "my-new-list",
 			html: items.join( "" )
 		}).appendTo( "body" );
+	});
+	
+	$(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip();   
 	});
 </script>
