@@ -1,0 +1,45 @@
+.box{
+	width:300px;
+	height:150px;
+	border: 1px solid grey;
+}
+
+.navbar-header{
+	width:100%;
+	margin:auto;
+}
+
+.navbar-text{
+}
+
+.aside{
+	width:20%;
+	height:150px;
+}
+
+.row{
+	margin-left:5%;
+	width:50%;
+}
+
+#grosseBoite{
+	witdth:45%;
+	display:inline-block;
+}
+
+#googleMap{
+	display:inline-block;
+	text-align:right;
+}
+
+#wrapper{
+	padding: 10%;
+	height:100%;
+	width:90%;
+	margin:auto;
+}
+
+body{
+	width:90%;
+	margin:auto;
+}
