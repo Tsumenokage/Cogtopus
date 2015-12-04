@@ -8,6 +8,14 @@
 
 	<body>
 		<div id="googleMap" style="width:1000px;height:800px;"></div>
+		<div id="zoneIcones">
+			<img src="Ressources/icon_attentat.png" onclick="selectionIcone('icon_attentat');" style="width: 60px; height:94px;">
+			<img src="Ressources/icon_epidemie.png" onclick="selectionIcone('icon_epidemie');" style="width: 60px; height:94px;">
+			<img src="Ressources/icon_guerre.png" onclick="selectionIcone('icon_guerre');" style="width: 60px; height:94px;">
+			<img src="Ressources/icon_incendie.png" onclick="selectionIcone('icon_incendie');" style="width: 60px; height:94px;">
+			<img src="Ressources/icon_innondation.png" onclick="selectionIcone('icon_innondation');" style="width: 60px; height:94px;">
+			<img src="Ressources/icon_seisme.png" onclick="selectionIcone('icon_seisme');" style="width: 60px; height:94px;">
+		</div>
 	</body>
 </html>
 
@@ -34,7 +42,7 @@
             ' <button type="button" onclick="addMarker();">Signaler l\'incident</button>' +
             '</div>';
     var markers = new Array();
-    var icone = 'Ressources/seisme.png';
+    var icone = 'Ressources/icon_attentat.png';
 
     function initialize()
     {
@@ -110,6 +118,11 @@
         marker.setMap(map);
         newInfo.close();
     }
+    
+    function selectionIcone(img)
+    {
+		icone = "Ressources/" + img + ".png";
+	}
     
     $.getJSON( "PHP/MarqeurData.php", function( data ) {
 	  var items = [];
