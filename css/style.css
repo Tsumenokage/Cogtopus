@@ -1,3 +1,14 @@
+.box{
+    width:300px;
+    height:150px;
+    border: 1px solid grey;
+}
+
+.navbar-header {
+    width: 100%;
+    margin: auto;
+}
+
 .boite
 {
 	width: 70%;
@@ -13,6 +24,86 @@
 .cursorChange
 {
 	cursor: pointer;
+}
+
+.aside{
+    width:20%;
+    height:300px;
+    border: 1px solid skyblue;
+}
+
+.row{
+    margin-left:5%;
+    /*width:50%;*/
+}
+
+#maps{
+    width:100%;
+    height:400px;
+}
+
+#googleMap{
+    width:100%;
+    height:70%;
+    text-align:right;
+}
+
+#zoneIcone{
+    width:100%;
+    height:10%;
+}
+
+#wrapper{
+    padding:0 10% 0 10%;
+    height:100%;
+    width:90%;
+    margin:auto;
+}
+
+div img {
+    width: 50%;
+    height: 90%;
+    margin-top: -3%;
+    margin-left: 23%;
+}
+
+body{
+    width:90%;
+    margin:auto;
+}
+
+#deflagration {
+    color: #fafafa;
+    background-color: #212121;
+}
+
+#seisme{
+    color: #fafafa;
+    background-color: #795548;
+}
+
+#incendie{
+    background-color: #f44336;
+}
+
+#evacuation {
+    background-color: #FDD835;
+}
+
+#biohazard {
+    background-color: #00C853;
+}
+
+#inondations {
+    background-color: #039BE5;
+}
+
+#tempetes {
+    background-color: #9E9E9E;
+}
+
+.container-fluid div {
+    cursor: pointer;
 }
 
 #googleMap

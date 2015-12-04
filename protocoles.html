@@ -1,57 +1,80 @@
 <!doctype html>
 <html lang="fr">
-	<head>
-	  	<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Cogtopus</title>
-    	<link href="css/bootstrap.min.css" rel="stylesheet">
-    	<link href="css/style.css" rel="stylesheet">
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	    <script src="js/bootstrap.min.js"></script>
-		<!--script src="masters/header.js"></script-->
-		<!-- maps --> 
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8NKmCuIVrno_ISygSrp__Y8EFoFij-GY" type="text/javascript"></script>
-		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-		  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		  <script>
-			  $(function() {
-				$( "#accordion" ).accordion();
-			  });
-		  </script>
-		
-	</head>
-	<body>
-		<div id="header">
-			<label id="texteHeader">Alerte évènement à LIEU. Veuillez rester chez vous</label>
-			<div id="menu">
-				<a href="index.html">Accueil</a>
-				<a href="protocoles.html">Protocoles à suivre</a>
-				<a href="">Toutes les informations</a>
-			</div>
-			<div id="accordion">
-			  <h3>Attentat</h3>
-			  <div>
-			  </div>
-			  <h3>Incendie</h3>
-			  <div>
-			  </div>
-			  <h3>Innondation</h3>
-			  <div>
-			  </div>
-			  <h3>Séisme</h3>
-			  <div>
-			  </div>
-			  <h3>Epidémie</h3>
-			  <div>
-			  </div>
-			  <h3>Guerre</h3>
-			  <div>
-			  </div>
-			</div>
-		</div>		
-	</body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cogtopus</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--script src="masters/header.js"></script-->
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display FIXE-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">LOGO</a>
+            <h1 class="navbar-text">Alerte évènement à LIEU. Veuillez rester chez vous.</h1>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#">Protocoles à suivre</a></li>
+                <li><a href="#">Toutes les informations</a></li>
+                <li><a href="#">Les secours les plus proches</a></li>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div id="wrapper">
+    <div id="grosseBoite">
+
+        <div class="container-fluid">
+            <div class="row" >
+                <div id="deflagration">
+                    <h1>Déflagration</h1></div>
+                <div id="seisme">
+                    <h1>Séisme</h1></div>
+                <div id="incendie"><h1>Incendie</h1></div>
+                <div id="evacuation"><h1>Evacuation</h1></div>
+                <div id="biohazard"><h1>Danger Biologique</h1></div>
+                <div id="inondations"><h1>Inondations</h1></div>
+                <div id="tempetes"><h1>Vent violent</h1></div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
 </html>
+
+<script>
+    $(document).ready(function(){
+        $(".container-fluid div").click(function(){
+            if ($(this).css('height') == '400px')
+                $(this).css({"height": "39px"});
+            else
+                $(this).css({"height": "400px"});
+        });
+    });
+</script>
