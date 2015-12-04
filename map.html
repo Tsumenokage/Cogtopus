@@ -49,6 +49,7 @@
     var markers = new Array();
     var icone = 'Ressources/icon_attentat.png';
     var markerSelected = -1;
+    var image = 'icon_attentat';
 
     function initialize()
     {
@@ -128,39 +129,82 @@
         markers.push(marker);
         marker.setMap(map);
         newInfo.close();
-        envoyerDonnees(lat,lng,icone);
+        envoyerDonnees(lat,lng);
+    }
+
+        function addMarkers(resultJson)
+    {
+
+            for(var i= 0; i < resultJson.length; i++)
+            {
+                selectionIcone(resultJson[i].Icone);
+                console.log(resultJson[i].Latitude);
+                console.log(resultJson[i].Longitude);
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(resultJson[i].Latitude, resultJson[i].Longitude),
+                    icon: icone,
+                    num: markers.length
+                });
+                
+                marker.addListener('click', function(event) {
+                    markerSelected = marker.num;
+                });
+
+                markers.push(marker);
+                marker.setMap(map);
+                
+            }
+
+
     }
     
     function selectionIcone(img)
     {
 		icone = "Ressources/" + img + ".png";
+        image = img
 	}
 	
     
-	 function envoyerDonnees(lat,lng,icone)
+	 function envoyerDonnees(lat,lng)
 	 {
-		var sendAjax = $.post( // On va chercher tous les chirurgiens qui sont dans le périmètre visible de la carte
-            'AjouterMarqueur.php',
+		$.post(
+            "PHP/AjouterMarqueur.php",
             {
-                x1: lat,
-                x2: lng,
-                y1: icone,
+                Latitude: lat,
+                Longitude: lng,
+                Icone: image
             }
+
+
         );
+        alert('test');
 	 }
 	
 	function recupererDonnees()
 	{
-		$.getJSON( "PHP/MarqeurData.php", function( data ) {
-		  var items = [];
-		  $.each( data, function( key, val ) {
-			items.push( "<li id='" + key + "'>" + val + "</li>" );
-		  });
-		 
-		  $( "ul", {
-			"class": "my-new-list",
-			html: items.join( "" )
-		  }).appendTo( "body" );
-		});
+        console.log("test");
+
+        $.ajax({
+            url: "PHP/MarqeurData.php",
+            success: function (data) {
+                console.log(data);
+                result = data.split('}');
+                console.dir(result);
+
+                var ResultJSon = new Array(result.length-1);
+
+                for(var i= 0; i < result.length-1; i++)
+                {
+                     result[i] = result[i] + '}';
+                     ResultJSon[i] = $.parseJSON(result[i]);
+                }
+
+                console.dir(ResultJSon);
+                addMarkers(ResultJSon)
+
+            },
+            
+        });
+
 	}
 </script>

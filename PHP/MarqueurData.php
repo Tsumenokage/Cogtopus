@@ -14,8 +14,12 @@
 
     $result = mysqli_query($connect,$query);
 
+    $rows = array();
+
     while ($row = mysqli_fetch_assoc($result)) 
     {
-    	echo json_encode($row);
-	}
+        $rows[] = $row;
+    }
+
+    echo json_encode($rows);
 ?>

@@ -10,12 +10,11 @@
     echo "La connexion au serveur MySQL n'a pas abouti : " . mysqli_connect_error();
     }
 
-    $query = "SELECT * FROM Marqueur INNER JOIN Etat WHERE Etat.NomEtat = 'EnCours' ";
+    $Latitude = $_POST['Latitude'];
+    $Longitude = $_POST['Longitude'];
+    $Icone = $_POST['Icone'];
+
+    $query = "INSERT INTO Marqueur VALUES(NULL,".$Longitude.",".$Latitude.",1,NULL,'Securise','".$Icone."')";
 
     $result = mysqli_query($connect,$query);
-
-    while ($row = mysqli_fetch_assoc($result)) 
-    {
-    	echo json_encode($row);
-	}
 ?>
