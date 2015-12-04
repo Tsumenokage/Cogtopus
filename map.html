@@ -8,7 +8,7 @@
                     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
             </head>
      
-            <body>
+            <body onload="recupererDonnees();">
                     <div id="googleMap" style="width:1000px;height:800px;"></div>
                     <div id="zoneIcones">
                             <img src="Ressources/Icones/attentat.png" onclick="selectionIcone('icon_attentat');" style="width: 72px; height:72px;">
@@ -24,7 +24,7 @@
     </html>
      
     <script>
-                   
+            
         var browserSupportFlag =  new Boolean();
         var lat = 0;
         var lng = 0;
@@ -179,12 +179,11 @@
      
      
             );
-            alert('test');
+            
              }
            
             function recupererDonnees()
             {
-            console.log("test");
      
             $.ajax({
                 url: "PHP/MarqeurData.php",
