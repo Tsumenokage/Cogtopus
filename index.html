@@ -16,28 +16,34 @@
 		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		
 	</head>
-	<body onload="recupererDonnees();">
+	<body onload="recupererDonnees();">		
 		<div id="header">
-			<label id="texteHeader">Alerte évènement à LIEU. Veuillez rester chez vous</label>
+			<img src="Ressources/logo.png" id="logoIcone"/>
+			<label id="texteHeader">Alerte : un *évènement* se déroule à *lieu*. Par mesure de sécurité, nous vous prions de rester chez vous.</label>
 			<div id="menu">
 				<a href="">Accueil</a>
-				<a href="protocoles.html">Protocoles à suivre</a>
-				<a>Toutes les informations</a>
+				<a href="protocoles.html">Prévention</a>
+				<a>Actualités</a>
 			</div>
 		</div>
 		<div id="wrapper">
 			<div class="boite">
-				<div class="zoneFct"><label>Les plus retweetés</label></div>
-				<div class="zoneFct"><label>Informations officielles</label></div>
-				<div class="zoneFct"><label>Description de l'évènement</label></div>
-				<div class="zoneFct"><label>Timeline : les dernières informations</label></div>
+				<div class="zoneFct">
+					<label>Informations officielles</label>
+					<p>Plus de 357mm d'eau ont été relevés à la Vacquerie, dans l'Hérault. De nombreux dégâts sont signalés, mais pas de victime.</p>
+				</div>
+				<div class="zoneFct" id="twi">
+					<label>Les plus retweetés</label><br/>	
+					<a class="twitter-timeline"  href="https://twitter.com/hashtag/NuitInfo" data-widget-id="672648573272592384">Tweets sur #NuitInfo</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
 				<div id="googleMap" id="map"></div>
 				<div id="zoneIcones">
 					<img src="Ressources/icon_attentat.png" class="cursorChange" data-toggle="tooltip" title="Signaler un attentat" onclick="selectionIcone('icon_attentat');" style="width: 60px; height:94px;">
 					<img src="Ressources/icon_epidemie.png" class="cursorChange" data-toggle="tooltip" title="Signaler une épidémie" onclick="selectionIcone('icon_epidemie');" style="width: 60px; height:94px;">
 					<img src="Ressources/icon_guerre.png" class="cursorChange" data-toggle="tooltip" title="Signaler une guerre" onclick="selectionIcone('icon_guerre');" style="width: 60px; height:94px;">
 					<img src="Ressources/icon_incendie.png" class="cursorChange" data-toggle="tooltip" title="Signaler un incendie" onclick="selectionIcone('icon_incendie');" style="width: 60px; height:94px;">
-					<img src="Ressources/icon_innondation.png" class="cursorChange" odata-toggle="tooltip" title="Signaler une innondation" nclick="selectionIcone('icon_innondation');" style="width: 60px; height:94px;">
+					<img src="Ressources/icon_innondation.png" class="cursorChange" data-toggle="tooltip" title="Signaler une innondation" nclick="selectionIcone('icon_innondation');" style="width: 60px; height:94px;">
 					<img src="Ressources/icon_seisme.png" class="cursorChange" data-toggle="tooltip" title="Signaler un séisme" onclick="selectionIcone('icon_seisme');" style="width: 60px; height:94px;">
 				</div>	
 			</div>	

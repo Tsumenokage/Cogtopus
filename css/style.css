@@ -1,8 +1,29 @@
+#logoIcone
+{
+	width: 10em;
+	float: left;
+	position: relative;
+	margin-top: -10px;
+}
+
 .boite
 {
 	width: 70%;
 	background-color: white;
 	margin: auto;
+}
+
+.boite > #twi
+{
+	text-align: center;
+}
+
+.boite > div > p
+{
+	margin-left: 50px;
+	margin-top: 10px;
+	margin-right: 50px;
+	text-align: justify;
 }
 
 #zoneIcones
@@ -23,7 +44,7 @@
 
 .zoneFct
 {
-	height: 200px;
+	min-height: 200px;
 	width: 100%;
 	border: solid black 0.1em;
 }
@@ -32,6 +53,7 @@
 {
 	margin-top: 2px;
 	margin-left: 10px;
+	margin-right: 10px;
 }
 
 #header
@@ -39,10 +61,17 @@
 	background-color: #222;
 	color: white;
 	width: 100%;
-	font-size: 30px;
-	text-align: left;
+	font-size: 15px;
+	text-align: center;
 	padding-top: 15px;
-	padding-left: 100px;
+}
+
+#header > label
+{
+	margin-left: 100px;
+	border: red solid 1px;
+	padding: 5px;
+	color: red;
 }
 
 #menu a
@@ -52,7 +81,7 @@
 	color: white;
 	cursor: pointer;
 	margin-right: 15px;
-	font-size: 22px;
+	font-size: 20px;
 	transition: 0.5s;
 }
 
@@ -72,3 +101,36 @@ body{
 	margin:auto;
 	background-image: url('../Ressources/Back/shattered.png');
 }
+
+#twi
+{
+	padding-left: 20px;
+}
+
+@media screen and (max-width: 1100px)
+	{
+		#header > label
+		{
+			text-align: justify;
+			margin: 15px;
+			border: red solid 1px;
+			padding: 5px;
+			color: red;
+		}
+		
+		#menu a
+		{
+			text-decoration: none;
+			color: white;
+			cursor: pointer;
+			font-size: 15px;
+			transition: 0.5s;
+		}
+		
+		.navbar-toggle .icon-bar {
+				border-radius: 1px;
+				display: block;
+				height: 2px;
+				width: 22px;
+		}
+	}
