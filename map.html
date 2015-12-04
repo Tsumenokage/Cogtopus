@@ -9,13 +9,15 @@
 	<body>
 		<div id="googleMap" style="width:1000px;height:800px;"></div>
 		<div id="zoneIcones">
-			<img src="Ressources/icon_attentat.png" onclick="selectionIcone('icon_attentat');" style="width: 60px; height:94px;">
-			<img src="Ressources/icon_epidemie.png" onclick="selectionIcone('icon_epidemie');" style="width: 60px; height:94px;">
-			<img src="Ressources/icon_guerre.png" onclick="selectionIcone('icon_guerre');" style="width: 60px; height:94px;">
-			<img src="Ressources/icon_incendie.png" onclick="selectionIcone('icon_incendie');" style="width: 60px; height:94px;">
-			<img src="Ressources/icon_innondation.png" onclick="selectionIcone('icon_innondation');" style="width: 60px; height:94px;">
-			<img src="Ressources/icon_seisme.png" onclick="selectionIcone('icon_seisme');" style="width: 60px; height:94px;">
+			<img src="Ressources/Icones/attentat.png" onclick="selectionIcone('icon_attentat');" style="width: 72px; height:72px;">
+			<img src="Ressources/Icones/epidemie.png" onclick="selectionIcone('icon_epidemie');" style="width: 72px; height:72px;">
+			<img src="Ressources/Icones/guerre.png" onclick="selectionIcone('icon_guerre');" style="width: 72px; height:72px;">
+			<img src="Ressources/Icones/incendie.png" onclick="selectionIcone('icon_incendie');" style="width: 72px; height:72px;">
+			<img src="Ressources/Icones/innondation.png" onclick="selectionIcone('icon_innondation');" style="width: 72px; height:72px;">
+			<img src="Ressources/Icones/seisme.png" onclick="selectionIcone('icon_seisme');" style="width: 72px; height:72px;">
 		</div>
+		
+		<input type="button" onclick="recupererDonnees()"/>
 	</body>
 </html>
 
@@ -27,6 +29,7 @@
     var map = null;
     var myCenter=new google.maps.LatLng(44.80627089999999,-0.5974830999999767);
     var newInfo = null;
+    var gestionMarker = null;
     var htmlVar =
             '<div id="signalEvent">' +
             ' <label>Si vous ne connaissez pas la réponse, passez à la suite</label><br/><br/>' +
@@ -41,8 +44,11 @@
             ' <button type="button" onclick="addMarker();">Prendre une photo de l\'incident</button><br/><br/>' +
             ' <button type="button" onclick="addMarker();">Signaler l\'incident</button>' +
             '</div>';
+            
+	
     var markers = new Array();
     var icone = 'Ressources/icon_attentat.png';
+    var markerSelected = -1;
 
     function initialize()
     {
@@ -109,30 +115,52 @@
 
     function addMarker()
     {
-        var marker=new google.maps.Marker({
+        var marker = new google.maps.Marker({
             position: new google.maps.LatLng(lat, lng),
-            icon: icone
+            icon: icone,
+            num: markers.length
+        });
+        
+        marker.addListener('click', function(event) {
+            markerSelected = marker.num;
         });
 
         markers.push(marker);
         marker.setMap(map);
         newInfo.close();
+        envoyerDonnees(lat,lng,icone);
     }
     
     function selectionIcone(img)
     {
 		icone = "Ressources/" + img + ".png";
 	}
+	
     
-    $.getJSON( "PHP/MarqeurData.php", function( data ) {
-	  var items = [];
-	  $.each( data, function( key, val ) {
-		items.push( "<li id='" + key + "'>" + val + "</li>" );
-	  });
-	 
-	  $( "ul", {
-		"class": "my-new-list",
-		html: items.join( "" )
-	  }).appendTo( "body" );
-	});
+	 function envoyerDonnees(lat,lng,icone)
+	 {
+		var sendAjax = $.post( // On va chercher tous les chirurgiens qui sont dans le périmètre visible de la carte
+            'AjouterMarqueur.php',
+            {
+                x1: lat,
+                x2: lng,
+                y1: icone,
+            }
+        );
+	 }
+	
+	function recupererDonnees()
+	{
+		$.getJSON( "PHP/MarqeurData.php", function( data ) {
+		  var items = [];
+		  $.each( data, function( key, val ) {
+			items.push( "<li id='" + key + "'>" + val + "</li>" );
+		  });
+		 
+		  $( "ul", {
+			"class": "my-new-list",
+			html: items.join( "" )
+		  }).appendTo( "body" );
+		});
+	}
 </script>
