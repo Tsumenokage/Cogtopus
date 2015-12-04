@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8NKmCuIVrno_ISygSrp__Y8EFoFij-GY" type="text/javascript"></script>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	</head>
 
 	<body>
@@ -10,6 +12,7 @@
 </html>
 
 <script>
+		
     var browserSupportFlag =  new Boolean();
     var lat = 0;
     var lng = 0;
@@ -108,14 +111,15 @@
         newInfo.close();
     }
     
-    function jajax() {
-	  var xhttp = new XMLHttpRequest();
-	  xhttp.onreadystatechange = function() {
-		if (xhttp.readyState == 4 && xhttp.status == 200) {
-		  document.getElementById("demo").innerHTML = xhttp.responseText;
-		}
-	  };
-	  xhttp.open("POST", "", true);
-	  xhttp.send();
-	}
+    $.getJSON( "PHP/MarqeurData.php", function( data ) {
+	  var items = [];
+	  $.each( data, function( key, val ) {
+		items.push( "<li id='" + key + "'>" + val + "</li>" );
+	  });
+	 
+	  $( "ul", {
+		"class": "my-new-list",
+		html: items.join( "" )
+	  }).appendTo( "body" );
+	});
 </script>
